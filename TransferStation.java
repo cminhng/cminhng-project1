@@ -11,7 +11,11 @@ public class TransferStation extends Station {
         transfers.add(prev);
     }
 
+    public void addTransferStationNext(Station next){
+        transfers.add(next);
+    }
+
     public String toString(){
-        return "TRANSFER" + super.toString();
+        return "TRANSFER" + super.toString();//what do you do with the other next and prev
     }
 }
