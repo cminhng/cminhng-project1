@@ -1,7 +1,7 @@
 public class EndStation extends Station {
 
-    public EndStation(String name, String lineColor){
-        super(name, lineColor);
+    public EndStation(String lineColor, String name){
+        super(lineColor, name);
     }
 
     public void makeEnd(){

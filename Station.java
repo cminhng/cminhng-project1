@@ -5,14 +5,27 @@ public class Station {
     protected Station prev;
     protected Station next;
 
-    public Station(String name, String lineColor){
+    public Station(String lineColor, String name){
         this.name = name;
         this.lineColor = lineColor;
     }
 
     public int tripLength(Station dest){
-        return 0;
+        int dist = 0; 
+        if(this.equals(dest)){
+            return 0;
+        }
+        //return this.recursiveTripLength(dist, dest);
+        //return this.next.tripLength(dest);
+        return 0
     }
+
+    /*private int recursiveTripLength(int dist, Station dest){
+        if(this.equals(dest)){
+            return 0;
+        }
+        return this.next.recursiveTripLength(dest);
+    }*/
 
     public void addNext(Station next){
         this.next = next;
