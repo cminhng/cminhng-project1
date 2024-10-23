@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 
 public class TransferStation extends Station {
-    static ArrayList<Station> transfers = new ArrayList<Station>();
 
     public TransferStation(String lineColor, String name){
         super(lineColor, name);
@@ -16,12 +15,17 @@ public class TransferStation extends Station {
     }
 
     public void addTransferStationPrev(Station prev){
-        transfers.add(prev);
+        otherStations.add(prev);
     }
 
     public void addTransferStationNext(Station next){
-        transfers.add(next);
+        otherStations.add(next);
     }
+
+    /*public void connect(Station other){
+        this.addNext(other);
+        other.addPrev(this);
+    }*/ //or other method 
 
     public String toString(){
         return "TRANSFER" + super.toString();//what do you do with the other next and prev

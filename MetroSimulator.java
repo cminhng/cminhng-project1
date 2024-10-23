@@ -96,7 +96,7 @@ public class MetroSimulator{
 		s2.connect(s3);
 		s3.connect(metro_center);
 		metro_center.connect(s4);
-`		s4.connect(s5);
+		s4.connect(s5);
 
 		return s1;
 	}
