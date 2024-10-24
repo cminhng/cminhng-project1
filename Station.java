@@ -12,6 +12,7 @@ public class Station {
     public Station(String lineColor, String name){
         this.name = name;
         this.lineColor = lineColor;
+        this.inService = true;
     }
 
     public ArrayList<Station> getOtherStations(){
@@ -35,40 +36,48 @@ public class Station {
         ArrayList<Station> visited = new ArrayList<Station>();
 
         return (this.recursiveTripLength(visited, dist, dest) == -1 ? -1 : 
-                dist + this.recursiveTripLength(visited, dist, dest));
+                this.recursiveTripLength(visited, dist, dest));
     }
 
     private int recursiveTripLength(ArrayList<Station> visited, int dist, Station dest){
         if(this.equals(dest)){
-            return 0;
+            return dist;
         }
         for(int i = 0; i < visited.size(); i++){
             if(this.equals(visited.get(i))){
                 return -1; 
-                //????? if it does this do i want it to just . 
-                //exit or is it possible there are other paths to explore
             }
         }
 
         visited.add(this);
         dist += 1;
-        int other = 0;
         
-            if(this.getOtherStations().size() > 0){//not empty
-                for(int i = 0; i < this.getOtherStations().size(); i++){
-                    other += this.getOtherStations().get(i).recursiveTripLength(visited, dist, dest);
+        
+        if(this.getOtherStations().size() > 0){//not empty
+            for(int i = 0; i < this.getOtherStations().size(); i++){
+                int other = this.getOtherStations().get(i).recursiveTripLength(visited, dist, dest);
+                if(other > -1){
+                    return other;
+
                 }
             }
+        }
 
-        return dist + other+ this.next.recursiveTripLength(visited, dist, dest);
+        int next = 0; 
+        if(this.next != null){
+            next = this.next.recursiveTripLength(visited, dist, dest);
+        }
+        return dist + next;
     }
 
     public void addNext(Station next){
         this.next = next;
+        this.next.prev = this;
     }
 
     public void addPrev(Station prev){
         this.prev = prev;
+        this.prev.next = this;
     }
 
     public void connect(Station other){
@@ -86,7 +95,7 @@ public class Station {
 
     public String toString(){
         return "STATION " + name + ": " + lineColor + " line, in service: "
-        + inService + ", previous station: " + (prev == null ? "none" : next) 
-        + ", next station: " + (next == null ? "none" : next);
+        + inService + ", previous station: " + (prev == null ? "none" : prev.name) 
+        + ", next station: " + (next == null ? "none" : next.name);
     }
 }   
