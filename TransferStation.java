@@ -1,5 +1,3 @@
-//import java.util.ArrayList;
-
 public class TransferStation extends Station {
 
     public TransferStation(String lineColor, String name){
@@ -16,27 +14,11 @@ public class TransferStation extends Station {
         next.prev = this;
     }
 
-    /*public void connect(Station other){
-        System.out.println("TRASNFER STATION CONNECT BEING CALLED ON METRO CENTER.");
-        if(this.next != null){
-            //System.out.println("\n**TRASNFER STATION ALREADY HAS NEXT: " + next.name);
-
-        }
-        if(this.next == null){
-            this.addNext(other);
-        }else{
-            System.out.println("\n**TRASNFER STATION ALREADY HAS NEXT: " + next.name);
-
-            this.addTransferStationNext(other);
-        }
-        other.addPrev(this);
-    }*/
-
     public String toString(){
         String ret = "TRANSFER" + super.toString();
-        
+        ret += "\n\tTransfers: \n";
+
         if(this.getOtherStations().size() > 0){
-            ret += "\n\tTransfers: \n";
             for(int i = 0; i < this.getOtherStations().size(); i++){
                 ret += "\t" + this.getOtherStations().get(i) + "\n";
             }

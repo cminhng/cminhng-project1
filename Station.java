@@ -6,7 +6,7 @@ public class Station {
     protected boolean inService;
     protected Station prev;
     protected Station next;
-    public static ArrayList<Station> otherStations = new ArrayList<Station>();
+    public ArrayList<Station> otherStations = new ArrayList<Station>();
 
 
     public Station(String lineColor, String name){
@@ -36,9 +36,7 @@ public class Station {
         ArrayList<Station> visited = new ArrayList<Station>();
 
         int recurse = this.recursiveTripLength(visited, dist, dest);
-        //System.out.println("tripLength "+ recurse);
         if(recurse == -1){
-            //System.out.println("\nTRIP LENGTH IS -1");
             return -1;
         }
         return recurse;
@@ -46,14 +44,11 @@ public class Station {
 
     private int recursiveTripLength(ArrayList<Station> visited, int dist, Station dest){
         //null checks
-        //System.out.println(this.name + " -> " + dest.name + " " + dist);
         if(this.equals(dest)){
-            //System.out.println("at "+ dest.name + " " + dist);
             return dist;
         }
         for(int i = 0; i < visited.size(); i++){
             if(this.equals(visited.get(i))){
-                //System.out.println("\n\nSTATION: " + this.name + " ALREADY VISITED\n\n");
                 return -1; 
             }
         }
@@ -80,18 +75,35 @@ public class Station {
     }
 
     public void addNext(Station next){
-        this.next = next;
-        this.next.prev = this;
+        this.connect(next);
     }
 
     public void addPrev(Station prev){
-        this.prev = prev;
-        this.prev.next = this;
+        prev.connect(this);
     }
 
     public void connect(Station other){
-        this.addNext(other);
-        other.addPrev(this);
+        if (this instanceof TransferStation) {
+            TransferStation t = (TransferStation) this;
+            if (t.next == null) {
+                t.next = other; 
+            } else {
+                t.addTransferStationNext(other); 
+            }
+            other.prev = t;
+        } else if (other instanceof TransferStation) {
+            TransferStation o = (TransferStation) other;
+            if (o.prev == null) {
+                o.prev = this;
+            } else {
+                o.addTransferStationPrev(this); 
+            }
+            this.next = o;
+        } else {
+            this.next = other;
+            other.prev = this;
+        }
+
     }
 
     public void switchAvailable(){
