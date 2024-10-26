@@ -35,16 +35,25 @@ public class Station {
 
         ArrayList<Station> visited = new ArrayList<Station>();
 
-        return (this.recursiveTripLength(visited, dist, dest) == -1 ? -1 : 
-                this.recursiveTripLength(visited, dist, dest));
+        int recurse = this.recursiveTripLength(visited, dist, dest);
+        //System.out.println("tripLength "+ recurse);
+        if(recurse == -1){
+            //System.out.println("\nTRIP LENGTH IS -1");
+            return -1;
+        }
+        return recurse;
     }
 
     private int recursiveTripLength(ArrayList<Station> visited, int dist, Station dest){
+        //null checks
+        //System.out.println(this.name + " -> " + dest.name + " " + dist);
         if(this.equals(dest)){
+            //System.out.println("at "+ dest.name + " " + dist);
             return dist;
         }
         for(int i = 0; i < visited.size(); i++){
             if(this.equals(visited.get(i))){
+                //System.out.println("\n\nSTATION: " + this.name + " ALREADY VISITED\n\n");
                 return -1; 
             }
         }
@@ -67,7 +76,7 @@ public class Station {
         if(this.next != null){
             next = this.next.recursiveTripLength(visited, dist, dest);
         }
-        return dist + next;
+        return next;
     }
 
     public void addNext(Station next){

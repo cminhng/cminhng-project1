@@ -1,0 +1,59 @@
+commit 97d3f05b53c985d042a972a742b179fba2c66251
+Author: christine nguyen <cminhng@cmng-MacBook-Pro.local>
+Date:   Thu Oct 24 08:41:12 2024 -0700
+
+    passed 2 more tests for toString assert, worked on triplength
+
+commit a7469aaeab32041f0a4e9ec18508abcb3e321245
+Author: christine nguyen <cminhng@cmng-MacBook-Pro.local>
+Date:   Wed Oct 23 12:45:17 2024 -0700
+
+    working on recursive trip length
+
+commit 8ed1ea260cb999bbe261514f30d29d6be7e42ffe
+Author: christine nguyen <cminhng@cmng-MacBook-Pro.local>
+Date:   Tue Oct 22 12:17:16 2024 -0700
+
+    connected all stations in MetroSimulator. started working on recursivetriplength
+
+commit dc74fcdbbffef1b01dfe585d93cefcf075e7001d
+Author: christine nguyen <cminhng@cmng-MacBook-Pro.local>
+Date:   Mon Oct 21 14:57:08 2024 -0700
+
+    edited transfer station
+
+commit 3716e7d16d476048744778c860b01b17cfeb2dd4
+Author: cminhng <christine.nguyen1@gwmail.gwu.edu>
+Date:   Mon Oct 21 12:24:13 2024 -0700
+
+    added makeEnd, toString
+
+commit 373a5005e634c6dce27ab6e65db0d20849038ba0
+Author: cminhng <christine.nguyen1@gwmail.gwu.edu>
+Date:   Mon Oct 21 12:23:44 2024 -0700
+
+    completed Station (probably)
+
+commit e1757a1e4b38567b2e0077d443e1b3a988e6e7f2
+Author: cminhng <christine.nguyen1@gwmail.gwu.edu>
+Date:   Mon Oct 21 12:23:00 2024 -0700
+
+    Update TransferStation.java (something went wrong with my branches so im copying directly to github)
+
+commit edd76a340dca16fe77a5f57100a61c5003558e10
+Author: cminhng <christine.nguyen1@gwmail.gwu.edu>
+Date:   Thu Oct 10 19:41:02 2024 -0700
+
+    Add files via upload
+
+commit 87188b96a5b2f8e8d1f9f6b1af3376108fd06b71
+Author: christine nguyen <cminhng@cmng-MacBook-Pro.local>
+Date:   Mon Oct 7 11:36:05 2024 -0700
+
+    added station parent and child class files, created basic constructors, added basic fields
+
+commit 259135164c74f72d46ba95287e3f537d0f21a651
+Author: cminhng <christine.nguyen1@gwmail.gwu.edu>
+Date:   Mon Oct 7 11:20:32 2024 -0700
+
+    Add files via upload

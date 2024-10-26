@@ -234,6 +234,8 @@ public class Project1_Tester {
     EndStation purple = MetroSimulator.makePurpleLine();
 
     String expected = "ENDSTATION S1: purple line, in service: true, previous station: S2, next station: S2";
+    System.out.println("TESTING 10 - s1 PURPLE LINE FOR MAKEEND");
+    System.out.println(purple.toString());
     assertEquals(expected, purple.toString());
 
     Station next = purple.next;
@@ -270,6 +272,8 @@ public class Project1_Tester {
     s3.connect(s4);
     s1.makeEnd();
     s4.makeEnd();
+
+    //System.out.println("\nCHECKING TRIP LENGTH BETWEEN s1 AND s2");
 
     assertEquals(1, s1.tripLength(s2));
     assertEquals(3, s1.tripLength(s4));
