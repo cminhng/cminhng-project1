@@ -1,3 +1,15 @@
+commit 02b54eca8ba320926e312110c8803a6dd6992b58
+Author: christine nguyen <cminhng@cmng-MacBook-Pro.local>
+Date:   Sat Oct 26 12:25:59 2024 -0700
+
+    FIXED ALL ERRORS IN CONNECT/ADD NEXT/PREV LOGIC
+
+commit 89a8837ed72f1e41ec3811d45c661174b939f5f8
+Author: christine nguyen <cminhng@cmng-MacBook-Pro.local>
+Date:   Sat Oct 26 00:10:16 2024 -0700
+
+    attempted to pass tests
+
 commit 97d3f05b53c985d042a972a742b179fba2c66251
 Author: christine nguyen <cminhng@cmng-MacBook-Pro.local>
 Date:   Thu Oct 24 08:41:12 2024 -0700
